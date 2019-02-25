@@ -1,16 +1,20 @@
+// **************     VARIABLES    *****************
+
+var coin = new Audio("../audio/smw_coin.wav");
 var regex = RegExp(/[a-z]/),
     wordEl = document.getElementById('word'),
-    inputTextEl = document.getElementById('inputText'),
+    inputTextEl = document.getElementById('inputText'), 
     attemptsEl = document.getElementById('attempts'),
     guessesEl = document.getElementById('guesses'),
     solvedEl = document.getElementById('solved'),
+    // inputTextEL = coin.play();
     restartBtn = document.getElementById('restart'),
     checkboxEl = document.querySelector('[type=checkbox]'),
-    snd = new Audio("https://soundbible.com/grab.php?id=2087&type=mp3");
-    
+    snd = new Audio("../audio/nsmb_course_clear-bonus.wav");
+
 function Data(){
-  this.words = ['wood', 'trees', 'mountain', 'queen', 'princess', 'forest']
-  this.randomWord = '' // todo - get random word from some free rest api
+  this.words = ['mario', 'wario', 'peach', 'daisy', 'luigi', 'yoshi', 'waluigi', 'bowser', 'toad', 'donkeykong', 'birdo', 'diddykong', 'rosalina', 'koopatroopa', 'goomba']
+  this.randomWord = '' //get random word from some free rest api
   this.guessLetters = []
   this.solved = false
   this.limitedAttempts = false
@@ -35,6 +39,7 @@ Data.prototype.updateProgress = function() {
     }
     return acc
   }, 0)
+  this.updateProgress
   
   this.progress = (100 * matches / this.randomWord.length).toFixed(2)
 }
@@ -80,13 +85,13 @@ UI.prototype.render = function() {
   
   this.clearInput()
   wordEl.innerHTML = ''
-  
+
   randomWord.split('').forEach(letter => {
     
     if(guessLetters.indexOf(letter) > -1) {
        wordEl.innerHTML += '<span>' + letter + '</span>'
     } else {
-       wordEl.innerHTML += '<span>*</span>'
+       wordEl.innerHTML += "<img src='../Mario-Word-Guess-Game-/assets/images/box.png' height='70px' class='word'>";
     }  
   })
   
@@ -101,6 +106,7 @@ UI.prototype.render = function() {
   data.solved 
     ? ui.disableInput()
     : ui.enableInput()
+    
 }
 
 var data = new Data();
@@ -112,12 +118,14 @@ ui.setFocusToInput()
 
 inputTextEl.addEventListener('input', function(e) {
   var key = e.data.toLowerCase()
-  
+  // coin here
+  coin.play()
   if(regex.test(key) && key !== 'enter' && !data.solved) {
     data.setGuessLetter(key)
     data.updateProgress()
     data.updateSolved()
     ui.render()
+
     
   } else {
     ui.clearInput()
