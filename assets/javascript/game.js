@@ -86,6 +86,8 @@ UI.prototype.render = function() {
   this.clearInput()
   wordEl.innerHTML = ''
 
+
+  // test
   randomWord.split('').forEach(letter => {
     
     if(guessLetters.indexOf(letter) > -1) {
