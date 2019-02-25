@@ -91,7 +91,7 @@ UI.prototype.render = function() {
     if(guessLetters.indexOf(letter) > -1) {
        wordEl.innerHTML += '<span>' + letter + '</span>'
     } else {
-       wordEl.innerHTML += "<img src='../Mario-Word-Guess-Game-/assets/images/box.png' height='70px' class='word'>";
+       wordEl.innerHTML += "<img src='../images/box.png' height='70px' class='word'>";
     }  
   })
   
