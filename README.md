@@ -1,4 +1,4 @@
-#Mario Guessing Game
+# Mario Guessing Game
 https://barry727.github.io/mario-guessing-game/
 
 A Mario themed JavaScript browser hangman game with dynamically updated HTML powered by JavaScript code.
