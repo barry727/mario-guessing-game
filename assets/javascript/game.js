@@ -10,7 +10,7 @@ var regex = RegExp(/[a-z]/),
     // inputTextEL = coin.play();
     restartBtn = document.getElementById('restart'),
     checkboxEl = document.querySelector('[type=checkbox]'),
-    snd = new Audio("../audio/nsmb_course_clear-bonus.wav");
+    snd = new Audio("../mario-guessing-game/assets/audio/nsmb_course_clear-bonus.wav");
 
 function Data(){
   this.words = ['mario', 'wario', 'peach', 'daisy', 'luigi', 'yoshi', 'waluigi', 'bowser', 'toad', 'donkeykong', 'birdo', 'diddykong', 'rosalina', 'koopatroopa', 'goomba']
